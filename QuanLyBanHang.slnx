@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="E:/DH24TH3/NK 2025-2026/HKII 2025-2026/LTQL/DTH235800_BTH1/QuanLyBanHang/QuanLyBanHang/QuanLyBanHang.csproj" />
+  <Project Path="SetupApp/SetupApp.vdproj" Type="Installer">
+    <Build />
+  </Project>
+</Solution>
