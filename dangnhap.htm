@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<title>Nhân viên</title>
+	<style>
+		body { background-color: #f4f6f9; }
+		.sidebar { position: sticky; top: 20px; }
+		.sidebar .nav-link {
+			color: #333;
+			border-left: 3px solid transparent;
+			padding: 6px 12px;
+			font-size: 0.9rem;
+		}
+		.sidebar .nav-link:hover,
+		.sidebar .nav-link.active {
+			border-left-color: #1a3c5e;
+			color: #1a3c5e;
+			background-color: #e8f0fe;
+			border-radius: 0 4px 4px 0;
+		}
+		.section-title {
+			color: #1a3c5e;
+			border-bottom: 2px solid #1a3c5e;
+			padding-bottom: 6px;
+			margin-top: 40px;
+		}
+		.btn-desc {
+			display: inline-block;
+			min-width: 80px;
+			text-align: center;
+			font-size: 0.8rem;
+			padding: 2px 10px;
+		}
+		.step-box {
+			border-left: 4px solid #1a3c5e;
+			background: #fff;
+			padding: 10px 16px;
+			margin-bottom: 10px;
+			border-radius: 0 6px 6px 0;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+		}
+		.step-box strong { color: #1a3c5e; }
+		.note-box {
+			background: #fff8e1;
+			border-left: 4px solid #ffc107;
+			padding: 10px 16px;
+			border-radius: 0 6px 6px 0;
+			font-size: 0.9rem;
+		}
+		.field-table th { background-color: #1a3c5e; color: white; }
+	</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" style="background-color: #1a3c5e;">
+	<div class="container">
+		<a class="navbar-brand text-white fw-bold" href="index.html">
+			<i class="bi bi-shop me-2"></i>Trợ giúp
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navMenu">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="index.html"><i class="bi bi-house me-1"></i>Trang chủ</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+						<i class="bi bi-people me-1"></i>Quản lý
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="nhanvien.html"><i class="bi bi-person-badge me-2"></i>Nhân viên</a></li>
+						<li><a class="dropdown-item" href="khachhang.html"><i class="bi bi-people me-2"></i>Khách hàng</a></li>
+						<li><a class="dropdown-item" href="sanpham.html"><i class="bi bi-box me-2"></i>Sản phẩm</a></li>
+						<li><a class="dropdown-item" href="hoadon.html"><i class="bi bi-receipt me-2"></i>Hoá đơn</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="baocao.html"><i class="bi bi-bar-chart me-1"></i>Báo cáo</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<div class="container my-4">
+	<div class="row">
+ 
+		<!-- Sidebar -->
+		<div class="col-md-3">
+			<div class="sidebar card p-3 shadow-sm">
+				<h6 class="fw-bold text-uppercase text-muted mb-3" style="font-size:0.75rem; letter-spacing:1px;">
+					<i class="bi bi-list-ul me-1"></i>Mục lục
+				</h6>
+				<nav class="nav flex-column">
+					<a class="nav-link" href="#gioi-thieu"><i class="bi bi-info-circle me-1"></i>Giới thiệu</a>
+					<a class="nav-link" href="#cac-truong"><i class="bi bi-input-cursor me-1"></i>Các trường nhập liệu</a>
+					<a class="nav-link" href="#cac-nut"><i class="bi bi-grid-3x2-gap me-1"></i>Các nút chức năng</a>
+					<a class="nav-link" href="#dang-nhap"><i class="bi bi-box-arrow-in-right me-1"></i>Thực hiện đăng nhập</a>
+					<a class="nav-link" href="#loi"><i class="bi bi-exclamation-triangle me-1"></i>Lỗi thường gặp</a>
+					<a class="nav-link" href="#phim-tat"><i class="bi bi-keyboard me-1"></i>Phím tắt</a>
+				</nav>
+			</div>
+		</div>
+ 
+		<!-- Nội dung chính -->
+		<div class="col-md-9">
+			<div class="card shadow-sm p-4">
+ 
+				<!-- Tiêu đề -->
+				<div class="d-flex align-items-center mb-3">
+					<i class="bi bi-lock fs-2 text-primary me-3"></i>
+					<div>
+						<h3 class="mb-0 fw-bold" style="color:#1a3c5e;">Đăng Nhập Hệ Thống</h3>
+						<small class="text-muted">Hướng dẫn sử dụng màn hình Đăng nhập – ITShop.VN</small>
+					</div>
+				</div>
+ 
+				<img src="images/dangnhap.png" class="img-fluid rounded border mb-4 mx-auto d-block" alt="Màn hình đăng nhập" style="max-width:420px;" />
+ 
+				<!-- Giới thiệu -->
+				<h4 class="section-title" id="gioi-thieu"><i class="bi bi-info-circle me-2"></i>Giới thiệu</h4>
+				<p>Màn hình <strong>Đăng nhập</strong> là cửa ngõ truy cập vào hệ thống quản lý bán hàng ITShop.VN. Mỗi nhân viên cần có tài khoản riêng với tên đăng nhập và mật khẩu được cấp bởi quản trị viên. Quyền truy cập vào các chức năng trong hệ thống phụ thuộc vào <strong>quyền hạn</strong> được phân cho tài khoản đó.</p>
+ 
+				<!-- Các trường nhập liệu -->
+				<h4 class="section-title" id="cac-truong"><i class="bi bi-input-cursor me-2"></i>Các trường nhập liệu</h4>
+				<table class="table table-bordered table-sm field-table">
+					<thead>
+						<tr><th>Trường</th><th>Mô tả</th><th>Bắt buộc</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Tên đăng nhập</td>
+							<td>Tên tài khoản được cấp bởi quản trị viên hệ thống</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Mật khẩu</td>
+							<td>Mật khẩu tương ứng với tài khoản — phân biệt chữ hoa/thường</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+					</tbody>
+				</table>
+ 
+				<!-- Các nút chức năng -->
+				<h4 class="section-title" id="cac-nut"><i class="bi bi-grid-3x2-gap me-2"></i>Các nút chức năng</h4>
+				<table class="table table-bordered table-sm">
+					<thead class="field-table">
+						<tr><th>Nút</th><th>Chức năng</th><th>Phím tắt</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><span class="btn btn-secondary btn-sm btn-desc">Đăng nhập</span></td>
+							<td>Xác nhận thông tin và đăng nhập vào hệ thống</td>
+							<td><kbd>Enter</kbd></td>
+						</tr>
+						<tr>
+							<td><span class="btn btn-secondary btn-sm btn-desc">Huỷ bỏ</span></td>
+							<td>Hủy thao tác và đóng cửa sổ đăng nhập</td>
+							<td><kbd>Esc</kbd></td>
+						</tr>
+					</tbody>
+				</table>
+ 
+				<!-- Thực hiện đăng nhập -->
+				<h4 class="section-title" id="dang-nhap"><i class="bi bi-box-arrow-in-right me-2"></i>Thực hiện đăng nhập</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Khởi động phần mềm — màn hình <strong>Đăng nhập</strong> tự động xuất hiện.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấp vào ô <strong>Tên đăng nhập</strong> và gõ tên tài khoản của bạn.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Nhấp vào ô <strong>Mật khẩu</strong> và gõ mật khẩu. Ký tự mật khẩu sẽ được ẩn bằng dấu <strong>●</strong>.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhấn nút <strong>Đăng nhập</strong> hoặc nhấn phím <kbd>Enter</kbd> để xác nhận.</div>
+				<div class="step-box"><strong>Bước 5:</strong> Nếu thông tin chính xác, hệ thống mở màn hình chính tương ứng với quyền hạn của tài khoản. Nếu sai, thông báo lỗi sẽ xuất hiện.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-exclamation-triangle-fill text-warning me-1"></i>
+					<strong>Lưu ý:</strong> Mật khẩu <strong>phân biệt chữ hoa và chữ thường</strong>. Ví dụ: <code>Admin123</code> khác với <code>admin123</code>. Hãy kiểm tra phím <kbd>Caps Lock</kbd> nếu đăng nhập thất bại.
+				</div>
+ 
+				<!-- Lỗi thường gặp -->
+				<h4 class="section-title" id="loi"><i class="bi bi-exclamation-triangle me-2"></i>Lỗi thường gặp</h4>
+				<table class="table table-bordered table-sm">
+					<thead class="field-table">
+						<tr><th>Thông báo lỗi</th><th>Nguyên nhân</th><th>Cách xử lý</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Tên đăng nhập hoặc mật khẩu không đúng</td>
+							<td>Nhập sai tên tài khoản hoặc mật khẩu</td>
+							<td>Kiểm tra lại tên đăng nhập và mật khẩu, lưu ý chữ hoa/thường</td>
+						</tr>
+						<tr>
+							<td>Vui lòng nhập tên đăng nhập</td>
+							<td>Ô tên đăng nhập đang để trống</td>
+							<td>Nhập tên tài khoản vào ô Tên đăng nhập</td>
+						</tr>
+						<tr>
+							<td>Vui lòng nhập mật khẩu</td>
+							<td>Ô mật khẩu đang để trống</td>
+							<td>Nhập mật khẩu vào ô Mật khẩu</td>
+						</tr>
+						<tr>
+							<td>Tài khoản không có quyền truy cập</td>
+							<td>Tài khoản bị khóa hoặc chưa được cấp quyền</td>
+							<td>Liên hệ quản trị viên để được cấp quyền truy cập</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="note-box mt-2" style="background:#fff0f0; border-color:#dc3545;">
+					<i class="bi bi-shield-lock-fill text-danger me-1"></i>
+					<strong>Bảo mật:</strong> Không chia sẻ tên đăng nhập và mật khẩu cho người khác. Nếu quên mật khẩu, hãy liên hệ quản trị viên để được cấp lại.
+				</div>
+ 
+				<!-- Phím tắt -->
+				<h4 class="section-title" id="phim-tat"><i class="bi bi-keyboard me-2"></i>Phím tắt</h4>
+				<table class="table table-bordered table-sm">
+					<thead class="field-table">
+						<tr><th>Phím tắt</th><th>Chức năng</th></tr>
+					</thead>
+					<tbody>
+						<tr><td><kbd>Enter</kbd></td><td>Thực hiện đăng nhập (tương đương nhấn nút Đăng nhập)</td></tr>
+						<tr><td><kbd>Esc</kbd></td><td>Hủy bỏ và đóng cửa sổ đăng nhập</td></tr>
+						<tr><td><kbd>Tab</kbd></td><td>Di chuyển con trỏ từ ô Tên đăng nhập sang ô Mật khẩu</td></tr>
+					</tbody>
+				</table>
+ 
+			</div>
+		</div>
+	</div>
+</div>
+<!-- FOOTER -->
+<footer class="mt-5 py-4" style="background-color: #1a3c5e; color: #cdd9e5;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="small mb-0">Tài liệu hướng dẫn sử dụng phần mềm quản lý bán hàng.</p>
+			</div>
+			<div class="col-md-6 text-md-end mt-3 mt-md-0">
+				<p class="small mb-0"><i class="bi bi-envelope me-1"></i>thanhtrucvotrinh@gmail.com</p>
+				<p class="small mb-0"><i class="bi bi-telephone me-1"></i>(0123) 456 789</p>
+				<p class="small mb-1 mt-2">&copy; 2026 Võ Trình Thanh Trúc. Tất cả quyền được bảo lưu.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	const sections = document.querySelectorAll('[id]');
+	const navLinks = document.querySelectorAll('.sidebar .nav-link');
+	window.addEventListener('scroll', () => {
+		let current = '';
+		sections.forEach(s => {
+			if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+		});
+		navLinks.forEach(link => {
+			link.classList.remove('active');
+			if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+		});
+	});
+</script>
+</body>
+</html>

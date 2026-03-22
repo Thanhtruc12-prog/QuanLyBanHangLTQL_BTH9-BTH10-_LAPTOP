@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<title>Nhân viên</title>
+	<style>
+		body { background-color: #f4f6f9; }
+		.sidebar { position: sticky; top: 20px; }
+		.sidebar .nav-link {
+			color: #333;
+			border-left: 3px solid transparent;
+			padding: 6px 12px;
+			font-size: 0.9rem;
+		}
+		.sidebar .nav-link:hover,
+		.sidebar .nav-link.active {
+			border-left-color: #1a3c5e;
+			color: #1a3c5e;
+			background-color: #e8f0fe;
+			border-radius: 0 4px 4px 0;
+		}
+		.section-title {
+			color: #1a3c5e;
+			border-bottom: 2px solid #1a3c5e;
+			padding-bottom: 6px;
+			margin-top: 40px;
+		}
+		.btn-desc {
+			display: inline-block;
+			min-width: 80px;
+			text-align: center;
+			font-size: 0.8rem;
+			padding: 2px 10px;
+		}
+		.step-box {
+			border-left: 4px solid #1a3c5e;
+			background: #fff;
+			padding: 10px 16px;
+			margin-bottom: 10px;
+			border-radius: 0 6px 6px 0;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+		}
+		.step-box strong { color: #1a3c5e; }
+		.note-box {
+			background: #fff8e1;
+			border-left: 4px solid #ffc107;
+			padding: 10px 16px;
+			border-radius: 0 6px 6px 0;
+			font-size: 0.9rem;
+		}
+		.field-table th { background-color: #1a3c5e; color: white; }
+	</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" style="background-color: #1a3c5e;">
+	<div class="container">
+		<a class="navbar-brand text-white fw-bold" href="index.html">
+			<i class="bi bi-shop me-2"></i>Trợ giúp
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navMenu">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="index.html"><i class="bi bi-house me-1"></i>Trang chủ</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+						<i class="bi bi-people me-1"></i>Quản lý
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="nhanvien.html"><i class="bi bi-person-badge me-2"></i>Nhân viên</a></li>
+						<li><a class="dropdown-item" href="khachhang.html"><i class="bi bi-people me-2"></i>Khách hàng</a></li>
+						<li><a class="dropdown-item" href="sanpham.html"><i class="bi bi-box me-2"></i>Sản phẩm</a></li>
+						<li><a class="dropdown-item" href="hoadon.html"><i class="bi bi-receipt me-2"></i>Hoá đơn</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="baocao.html"><i class="bi bi-bar-chart me-1"></i>Báo cáo</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+ 
+<div class="container my-4">
+	<div class="row">
+ 
+		<!-- Sidebar -->
+		<div class="col-md-3">
+			<div class="sidebar card p-3 shadow-sm">
+				<h6 class="fw-bold text-uppercase text-muted mb-3" style="font-size:0.75rem; letter-spacing:1px;">
+					<i class="bi bi-list-ul me-1"></i>Mục lục
+				</h6>
+				<nav class="nav flex-column">
+					<a class="nav-link" href="#gioi-thieu"><i class="bi bi-info-circle me-1"></i>Giới thiệu</a>
+					<a class="nav-link" href="#cac-nut"><i class="bi bi-grid-3x2-gap me-1"></i>Các nút chức năng</a>
+					<a class="nav-link" href="#danhsach"><i class="bi bi-table me-1"></i>Danh sách nhân viên</a>
+					<a class="nav-link" href="#them"><i class="bi bi-plus-circle me-1"></i>Thêm nhân viên</a>
+					<a class="nav-link" href="#sua"><i class="bi bi-pencil me-1"></i>Sửa nhân viên</a>
+					<a class="nav-link" href="#xoa"><i class="bi bi-trash me-1"></i>Xóa nhân viên</a>
+					<a class="nav-link" href="#timkiem"><i class="bi bi-search me-1"></i>Tìm kiếm nhân viên</a>
+					<a class="nav-link" href="#nhap"><i class="bi bi-file-earmark-arrow-down me-1"></i>Nhập từ Excel</a>
+					<a class="nav-link" href="#xuat"><i class="bi bi-file-earmark-arrow-up me-1"></i>Xuất ra Excel</a>
+				</nav>
+			</div>
+		</div>
+ 
+		<!-- Nội dung chính -->
+		<div class="col-md-9">
+			<div class="card shadow-sm p-4">
+ 
+				<!-- Tiêu đề -->
+				<div class="d-flex align-items-center mb-3">
+					<i class="bi bi-person-badge fs-2 text-primary me-3"></i>
+					<div>
+						<h3 class="mb-0 fw-bold" style="color:#1a3c5e;">Quản lý Nhân Viên</h3>
+						<small class="text-muted">Hướng dẫn sử dụng màn hình Nhân viên</small>
+					</div>
+				</div>
+ 
+				<img src="images/nhanvien.png" class="img-fluid rounded border mb-4 mx-auto d-block" alt="Màn hình nhân viên" />
+ 
+				<!-- Giới thiệu -->
+				<h4 class="section-title" id="gioi-thieu"><i class="bi bi-info-circle me-2"></i>Giới thiệu</h4>
+				<p>Màn hình <strong>Nhân viên</strong> cho phép quản lý danh sách nhân viên trong hệ thống, bao gồm: thêm mới, chỉnh sửa, xóa, tìm kiếm, nhập từ Excel và xuất ra Excel. Mỗi nhân viên có tài khoản đăng nhập riêng với quyền hạn được phân cấp cụ thể.</p>
+ 
+				<h6 class="mt-3 fw-bold">Các trường thông tin:</h6>
+				<table class="table table-bordered table-sm field-table">
+					<thead>
+						<tr><th>Trường</th><th>Mô tả</th><th>Bắt buộc</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Họ và tên</td>
+							<td>Họ và tên đầy đủ của nhân viên</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Tên đăng nhập</td>
+							<td>Tên tài khoản dùng để đăng nhập vào hệ thống (không dấu, không khoảng trắng)</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Điện thoại</td>
+							<td>Số điện thoại liên hệ của nhân viên</td>
+							<td class="text-center text-muted">–</td>
+						</tr>
+						<tr>
+							<td>Mật khẩu</td>
+							<td>Mật khẩu đăng nhập của nhân viên</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Địa chỉ</td>
+							<td>Địa chỉ nơi cư trú của nhân viên</td>
+							<td class="text-center text-muted">–</td>
+						</tr>
+						<tr>
+							<td>Quyền hạn</td>
+							<td>Phân quyền truy cập của nhân viên trong hệ thống (ví dụ: Admin, Nhân viên bán hàng...)</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+					</tbody>
+				</table>
+ 
+				<!-- Các nút chức năng -->
+				<h4 class="section-title" id="cac-nut"><i class="bi bi-grid-3x2-gap me-2"></i>Các nút chức năng</h4>
+				<table class="table table-bordered table-sm">
+					<thead class="field-table">
+						<tr><th>Nút</th><th>Chức năng</th><th>Phím tắt</th></tr>
+					</thead>
+					<tbody>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Thêm</span></td><td>Xóa trắng các ô nhập liệu để thêm nhân viên mới</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Sửa</span></td><td>Kích hoạt chế độ chỉnh sửa thông tin nhân viên đang chọn</td><td>–</td></tr>
+						<tr><td><span class="btn btn-danger btn-sm btn-desc">Xoá</span></td><td>Xóa nhân viên đang được chọn khỏi hệ thống</td><td>Del</td></tr>
+						<tr><td><span class="btn btn-primary btn-sm btn-desc">Lưu</span></td><td>Lưu thông tin nhân viên vào cơ sở dữ liệu</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Huỷ Bỏ</span></td><td>Hủy thao tác hiện tại, khôi phục dữ liệu cũ</td><td>Esc</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Tìm kiếm</span></td><td>Tìm kiếm nhân viên theo họ tên hoặc tên đăng nhập</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Nhập...</span></td><td>Nhập danh sách nhân viên từ file Excel</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Xuất...</span></td><td>Xuất danh sách nhân viên ra file Excel</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Thoát</span></td><td>Đóng màn hình Nhân viên</td><td>Alt+F4</td></tr>
+					</tbody>
+				</table>
+ 
+				<!-- Danh sách -->
+				<h4 class="section-title" id="danhsach"><i class="bi bi-table me-2"></i>Danh sách nhân viên</h4>
+				<p>Bảng danh sách hiển thị toàn bộ nhân viên với các cột: <strong>ID, Họ và tên, Điện thoại, Địa chỉ, Tên đăng nhập, Quyền hạn</strong>.</p>
+				<div class="step-box"><strong>Bước 1:</strong> Mở màn hình Nhân viên — danh sách tự động tải và hiển thị tất cả nhân viên trong hệ thống.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Click vào một dòng trong danh sách để chọn nhân viên. Thông tin nhân viên sẽ tự động điền vào các ô nhập liệu phía trên.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Sau khi chọn, bạn có thể thực hiện: <strong>Sửa</strong> hoặc <strong>Xoá</strong> nhân viên đó.</div>
+ 
+				<!-- Thêm -->
+				<h4 class="section-title" id="them"><i class="bi bi-plus-circle me-2"></i>Thêm nhân viên</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Thêm</strong> — tất cả ô nhập liệu sẽ được xóa trắng để sẵn sàng nhập thông tin mới.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhập <strong>Họ và tên (*)</strong> của nhân viên.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Nhập <strong>Tên đăng nhập (*)</strong> — tên này sẽ được dùng để đăng nhập vào hệ thống.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhập <strong>Điện thoại</strong> và <strong>Địa chỉ</strong> (không bắt buộc).</div>
+				<div class="step-box"><strong>Bước 5:</strong> Nhập <strong>Mật khẩu (*)</strong> cho tài khoản của nhân viên.</div>
+				<div class="step-box"><strong>Bước 6:</strong> Chọn <strong>Quyền hạn (*)</strong> phù hợp từ danh sách thả xuống.</div>
+				<div class="step-box"><strong>Bước 7:</strong> Nhấn nút <strong>Lưu</strong> để lưu nhân viên mới vào hệ thống. Nhân viên mới sẽ xuất hiện trong danh sách bên dưới. Nếu muốn hủy, nhấn <strong>Huỷ Bỏ</strong>.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-exclamation-triangle-fill text-warning me-1"></i>
+					<strong>Lưu ý:</strong> Họ và tên, Tên đăng nhập, Mật khẩu và Quyền hạn không được để trống. Tên đăng nhập phải là duy nhất trong hệ thống (không được trùng với tài khoản đã có).
+				</div>
+ 
+				<!-- Sửa -->
+				<h4 class="section-title" id="sua"><i class="bi bi-pencil me-2"></i>Sửa nhân viên</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào nhân viên cần sửa trong danh sách để chọn — thông tin sẽ hiển thị lên các ô nhập liệu.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong>Sửa</strong> để kích hoạt chế độ chỉnh sửa — các ô nhập liệu sẽ cho phép thay đổi dữ liệu.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Thay đổi các thông tin cần cập nhật (họ tên, điện thoại, địa chỉ, mật khẩu, quyền hạn...).</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhấn nút <strong>Lưu</strong> để lưu lại thay đổi.</div>
+				<div class="step-box"><strong>Bước 5:</strong> Nếu muốn hủy thay đổi, nhấn <strong>Huỷ Bỏ</strong> — dữ liệu gốc sẽ được khôi phục.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Tên đăng nhập không được thay đổi thành tên đã tồn tại của nhân viên khác.
+				</div>
+ 
+				<!-- Xóa -->
+				<h4 class="section-title" id="xoa"><i class="bi bi-trash me-2"></i>Xóa nhân viên</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào nhân viên cần xóa trong danh sách để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong class="text-danger">Xoá</strong> hoặc nhấn phím <kbd>Del</kbd>.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Hộp thoại xác nhận hiện ra — nhấn <strong>Có (Yes)</strong> để xác nhận xóa hoặc <strong>Không (No)</strong> để hủy.</div>
+				<div class="note-box mt-2" style="background:#fff0f0; border-color:#dc3545;">
+					<i class="bi bi-exclamation-triangle-fill text-danger me-1"></i>
+					<strong>Cảnh báo:</strong> Thao tác xóa không thể hoàn tác. Không thể xóa tài khoản nhân viên đang đăng nhập vào hệ thống hoặc tài khoản quản trị viên duy nhất.
+				</div>
+ 
+				<!-- Tìm kiếm -->
+				<h4 class="section-title" id="timkiem"><i class="bi bi-search me-2"></i>Tìm kiếm nhân viên</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Tìm kiếm</strong> — hộp thoại hoặc ô tìm kiếm sẽ xuất hiện.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhập từ khóa tìm kiếm (họ tên hoặc tên đăng nhập của nhân viên).</div>
+				<div class="step-box"><strong>Bước 3:</strong> Hệ thống hiển thị kết quả phù hợp trong danh sách. Click vào nhân viên cần chọn để xem chi tiết hoặc thực hiện thao tác tiếp theo.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Tìm kiếm không phân biệt chữ hoa/thường. Có thể tìm theo họ, tên hoặc một phần của tên đăng nhập.
+				</div>
+ 
+				<!-- Nhập Excel -->
+				<h4 class="section-title" id="nhap"><i class="bi bi-file-earmark-arrow-down me-2"></i>Nhập nhân viên từ Excel</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Chuẩn bị file Excel với các cột theo đúng thứ tự: <strong>Họ và tên, Tên đăng nhập, Mật khẩu, Điện thoại, Địa chỉ, Quyền hạn</strong>.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong>Nhập...</strong> — hộp thoại chọn file mở ra.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Tìm đến file Excel cần nhập và nhấn <strong>Open (Mở)</strong>.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Hệ thống đọc dữ liệu và thêm vào cơ sở dữ liệu. Thông báo kết quả (số dòng nhập thành công / thất bại) hiển thị sau khi hoàn tất.</div>
+				<div class="step-box"><strong>Bước 5:</strong> Danh sách nhân viên tự động cập nhật sau khi nhập xong.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Dòng đầu tiên của file Excel là tiêu đề cột và sẽ bị bỏ qua khi nhập. Các dòng có tên đăng nhập trùng với tài khoản đã có sẽ bị bỏ qua.
+				</div>
+ 
+				<!-- Xuất Excel -->
+				<h4 class="section-title" id="xuat"><i class="bi bi-file-earmark-arrow-up me-2"></i>Xuất nhân viên ra Excel</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Xuất...</strong> — hộp thoại lưu file mở ra.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Chọn thư mục lưu và đặt tên file Excel mong muốn.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Nhấn <strong>Save (Lưu)</strong> để xuất file.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Sau khi xuất xong, hệ thống thông báo thành công và có thể mở file Excel vừa tạo ngay lập tức để kiểm tra.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-exclamation-triangle-fill text-warning me-1"></i>
+					<strong>Lưu ý:</strong> File Excel xuất ra sẽ không bao gồm cột <strong>Mật khẩu</strong> để đảm bảo bảo mật thông tin tài khoản nhân viên.
+				</div>
+ 
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+<!-- FOOTER -->
+<footer class="mt-5 py-4" style="background-color: #1a3c5e; color: #cdd9e5;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="small mb-0">Tài liệu hướng dẫn sử dụng phần mềm quản lý bán hàng.</p>
+			</div>
+			<div class="col-md-6 text-md-end mt-3 mt-md-0">
+				<p class="small mb-0"><i class="bi bi-envelope me-1"></i>thanhtrucvotrinh@gmail.com</p>
+				<p class="small mb-0"><i class="bi bi-telephone me-1"></i>(0123) 456 789</p>
+				<p class="small mb-1 mt-2">&copy; 2026 Võ Trình Thanh Trúc. Tất cả quyền được bảo lưu.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	const sections = document.querySelectorAll('[id]');
+	const navLinks = document.querySelectorAll('.sidebar .nav-link');
+	window.addEventListener('scroll', () => {
+		let current = '';
+		sections.forEach(s => {
+			if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+		});
+		navLinks.forEach(link => {
+			link.classList.remove('active');
+			if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+		});
+	});
+</script>
+</body>
+</html>

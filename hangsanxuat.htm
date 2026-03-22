@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<title>Nhân viên</title>
+	<style>
+		body { background-color: #f4f6f9; }
+		.sidebar { position: sticky; top: 20px; }
+		.sidebar .nav-link {
+			color: #333;
+			border-left: 3px solid transparent;
+			padding: 6px 12px;
+			font-size: 0.9rem;
+		}
+		.sidebar .nav-link:hover,
+		.sidebar .nav-link.active {
+			border-left-color: #1a3c5e;
+			color: #1a3c5e;
+			background-color: #e8f0fe;
+			border-radius: 0 4px 4px 0;
+		}
+		.section-title {
+			color: #1a3c5e;
+			border-bottom: 2px solid #1a3c5e;
+			padding-bottom: 6px;
+			margin-top: 40px;
+		}
+		.btn-desc {
+			display: inline-block;
+			min-width: 80px;
+			text-align: center;
+			font-size: 0.8rem;
+			padding: 2px 10px;
+		}
+		.step-box {
+			border-left: 4px solid #1a3c5e;
+			background: #fff;
+			padding: 10px 16px;
+			margin-bottom: 10px;
+			border-radius: 0 6px 6px 0;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+		}
+		.step-box strong { color: #1a3c5e; }
+		.note-box {
+			background: #fff8e1;
+			border-left: 4px solid #ffc107;
+			padding: 10px 16px;
+			border-radius: 0 6px 6px 0;
+			font-size: 0.9rem;
+		}
+		.field-table th { background-color: #1a3c5e; color: white; }
+	</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" style="background-color: #1a3c5e;">
+	<div class="container">
+		<a class="navbar-brand text-white fw-bold" href="index.html">
+			<i class="bi bi-shop me-2"></i>Trợ giúp
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navMenu">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="index.html"><i class="bi bi-house me-1"></i>Trang chủ</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+						<i class="bi bi-people me-1"></i>Quản lý
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="nhanvien.html"><i class="bi bi-person-badge me-2"></i>Nhân viên</a></li>
+						<li><a class="dropdown-item" href="khachhang.html"><i class="bi bi-people me-2"></i>Khách hàng</a></li>
+						<li><a class="dropdown-item" href="sanpham.html"><i class="bi bi-box me-2"></i>Sản phẩm</a></li>
+						<li><a class="dropdown-item" href="hoadon.html"><i class="bi bi-receipt me-2"></i>Hoá đơn</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="baocao.html"><i class="bi bi-bar-chart me-1"></i>Báo cáo</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container my-4">
+	<div class="row">
+ 
+		<!-- Sidebar -->
+		<div class="col-md-3">
+			<div class="sidebar card p-3 shadow-sm">
+				<h6 class="fw-bold text-uppercase text-muted mb-3" style="font-size:0.75rem; letter-spacing:1px;">
+					<i class="bi bi-list-ul me-1"></i>Mục lục
+				</h6>
+				<nav class="nav flex-column">
+					<a class="nav-link" href="#gioi-thieu"><i class="bi bi-info-circle me-1"></i>Giới thiệu</a>
+					<a class="nav-link" href="#cac-nut"><i class="bi bi-grid-3x2-gap me-1"></i>Các nút chức năng</a>
+					<a class="nav-link" href="#danhsach"><i class="bi bi-table me-1"></i>Danh sách hãng sản xuất</a>
+					<a class="nav-link" href="#them"><i class="bi bi-plus-circle me-1"></i>Thêm hãng sản xuất</a>
+					<a class="nav-link" href="#sua"><i class="bi bi-pencil me-1"></i>Sửa hãng sản xuất</a>
+					<a class="nav-link" href="#xoa"><i class="bi bi-trash me-1"></i>Xóa hãng sản xuất</a>
+					<a class="nav-link" href="#nhap"><i class="bi bi-file-earmark-arrow-down me-1"></i>Nhập từ Excel</a>
+					<a class="nav-link" href="#xuat"><i class="bi bi-file-earmark-arrow-up me-1"></i>Xuất ra Excel</a>
+				</nav>
+			</div>
+		</div>
+ 
+		<!-- Nội dung chính -->
+		<div class="col-md-9">
+			<div class="card shadow-sm p-4">
+ 
+				<!-- Tiêu đề -->
+				<div class="d-flex align-items-center mb-3">
+					<i class="bi bi-building fs-2 text-primary me-3"></i>
+					<div>
+						<h3 class="mb-0 fw-bold" style="color:#1a3c5e;">Quản lý Hãng Sản Xuất</h3>
+						<small class="text-muted">Hướng dẫn sử dụng màn hình Hãng sản xuất</small>
+					</div>
+				</div>
+ 
+				<img src="images/hangsanxuat.png" class="img-fluid rounded border mb-4 mx-auto d-block" alt="Màn hình hãng sản xuất" />
+ 
+				<!-- Giới thiệu -->
+				<h4 class="section-title" id="gioi-thieu"><i class="bi bi-info-circle me-2"></i>Giới thiệu</h4>
+				<p>Màn hình <strong>Hãng sản xuất</strong> cho phép quản lý danh sách các hãng sản xuất thiết bị trong hệ thống, bao gồm: thêm mới, chỉnh sửa, xóa, nhập từ Excel và xuất ra Excel.</p>
+ 
+				<h6 class="mt-3 fw-bold">Các trường thông tin:</h6>
+				<table class="table table-bordered table-sm field-table">
+					<thead>
+						<tr><th>Trường</th><th>Mô tả</th><th>Bắt buộc</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Tên hãng sản xuất</td><td>Tên đầy đủ của hãng sản xuất (ví dụ: Acer, Apple, Asus...)</td><td class="text-center text-danger">✓</td></tr>
+					</tbody>
+				</table>
+ 
+				<!-- Các nút chức năng -->
+				<h4 class="section-title" id="cac-nut"><i class="bi bi-grid-3x2-gap me-2"></i>Các nút chức năng</h4>
+				<table class="table table-bordered table-sm">
+					<thead class="field-table">
+						<tr><th>Nút</th><th>Chức năng</th><th>Phím tắt</th></tr>
+					</thead>
+					<tbody>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Thêm</span></td><td>Xóa trắng ô nhập liệu để thêm hãng sản xuất mới</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Sửa</span></td><td>Cho phép chỉnh sửa tên hãng sản xuất đang chọn</td><td>–</td></tr>
+						<tr><td><span class="btn btn-danger btn-sm btn-desc">Xoá</span></td><td>Xóa hãng sản xuất đang được chọn</td><td>Del</td></tr>
+						<tr><td><span class="btn btn-primary btn-sm btn-desc">Lưu</span></td><td>Lưu thông tin hãng sản xuất vào cơ sở dữ liệu</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Huỷ Bỏ</span></td><td>Hủy thao tác hiện tại, khôi phục dữ liệu cũ</td><td>Esc</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Nhập</span></td><td>Nhập danh sách hãng sản xuất từ file Excel</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Xuất</span></td><td>Xuất danh sách hãng sản xuất ra file Excel</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Thoát</span></td><td>Đóng màn hình Hãng sản xuất</td><td>Alt+F4</td></tr>
+					</tbody>
+				</table>
+ 
+				<!-- Danh sách -->
+				<h4 class="section-title" id="danhsach"><i class="bi bi-table me-2"></i>Danh sách hãng sản xuất</h4>
+				<p>Bảng danh sách hiển thị toàn bộ hãng sản xuất với các cột: <strong>ID, Tên hãng sản xuất</strong>.</p>
+				<div class="step-box"><strong>Bước 1:</strong> Mở màn hình Hãng sản xuất — danh sách tự động tải và hiển thị tất cả hãng.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Click vào một dòng trong danh sách để chọn hãng sản xuất. Tên hãng sẽ tự động điền vào ô phía trên.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Sau khi chọn, bạn có thể thực hiện: <strong>Sửa</strong> hoặc <strong>Xoá</strong>.</div>
+ 
+				<!-- Thêm -->
+				<h4 class="section-title" id="them"><i class="bi bi-plus-circle me-2"></i>Thêm hãng sản xuất</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Thêm</strong> — ô nhập liệu sẽ được xóa trắng để sẵn sàng nhập thông tin mới.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhập <strong>Tên hãng sản xuất (*)</strong> vào ô nhập liệu.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Nhấn nút <strong>Lưu</strong> để lưu hãng sản xuất mới vào hệ thống.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Hãng mới sẽ xuất hiện trong danh sách bên dưới. Nếu muốn hủy, nhấn <strong>Huỷ Bỏ</strong>.</div>
+				<div class="note-box mt-2"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i><strong>Lưu ý:</strong> Tên hãng sản xuất không được để trống và không được trùng với hãng đã có trong hệ thống.</div>
+ 
+				<!-- Sửa -->
+				<h4 class="section-title" id="sua"><i class="bi bi-pencil me-2"></i>Sửa hãng sản xuất</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào hãng sản xuất cần sửa trong danh sách để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong>Sửa</strong> để kích hoạt chế độ chỉnh sửa — ô nhập liệu sẽ cho phép nhập dữ liệu.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Thay đổi tên hãng sản xuất trong ô nhập liệu.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhấn nút <strong>Lưu</strong> để lưu lại thay đổi.</div>
+				<div class="step-box"><strong>Bước 5:</strong> Nếu muốn hủy thay đổi, nhấn <strong>Huỷ Bỏ</strong> — dữ liệu gốc sẽ được khôi phục.</div>
+ 
+				<!-- Xóa -->
+				<h4 class="section-title" id="xoa"><i class="bi bi-trash me-2"></i>Xóa hãng sản xuất</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào hãng sản xuất cần xóa trong danh sách để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong class="text-danger">Xoá</strong>.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Hộp thoại xác nhận hiện ra — nhấn <strong>Có (Yes)</strong> để xác nhận hoặc <strong>Không (No)</strong> để hủy.</div>
+				<div class="note-box mt-2" style="background:#fff0f0; border-color:#dc3545;"><i class="bi bi-exclamation-triangle-fill text-danger me-1"></i><strong>Cảnh báo:</strong> Thao tác xóa không thể hoàn tác. Không thể xóa hãng sản xuất đang được sử dụng bởi sản phẩm trong hệ thống.</div>
+ 
+				<!-- Nhập Excel -->
+				<h4 class="section-title" id="nhap"><i class="bi bi-file-earmark-arrow-down me-2"></i>Nhập hãng sản xuất từ Excel</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Chuẩn bị file Excel với cột: <strong>Tên hãng sản xuất</strong>.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong>Nhập</strong> — hộp thoại chọn file mở ra.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Tìm đến file Excel cần nhập và nhấn <strong>Open (Mở)</strong>.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Hệ thống đọc dữ liệu và thêm vào cơ sở dữ liệu. Thông báo kết quả hiển thị sau khi hoàn tất.</div>
+				<div class="step-box"><strong>Bước 5:</strong> Danh sách hãng sản xuất tự động cập nhật sau khi nhập xong.</div>
+				<div class="note-box mt-2"><i class="bi bi-info-circle-fill text-primary me-1"></i><strong>Lưu ý:</strong> Dòng đầu tiên của file Excel là tiêu đề cột và sẽ bị bỏ qua khi nhập.</div>
+ 
+				<!-- Xuất Excel -->
+				<h4 class="section-title" id="xuat"><i class="bi bi-file-earmark-arrow-up me-2"></i>Xuất hãng sản xuất ra Excel</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Xuất</strong> — hộp thoại lưu file mở ra.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Chọn thư mục và đặt tên file Excel muốn lưu.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Nhấn <strong>Save (Lưu)</strong> để xuất file.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Sau khi xuất xong, hệ thống thông báo và có thể mở file Excel vừa tạo ngay lập tức.</div>
+ 
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+<!-- FOOTER -->
+<footer class="mt-5 py-4" style="background-color: #1a3c5e; color: #cdd9e5;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="small mb-0">Tài liệu hướng dẫn sử dụng phần mềm quản lý bán hàng.</p>
+			</div>
+			<div class="col-md-6 text-md-end mt-3 mt-md-0">
+				<p class="small mb-0"><i class="bi bi-envelope me-1"></i>thanhtrucvotrinh@gmail.com</p>
+				<p class="small mb-0"><i class="bi bi-telephone me-1"></i>(0123) 456 789</p>
+				<p class="small mb-1 mt-2">&copy; 2026 Võ Trình Thanh Trúc. Tất cả quyền được bảo lưu.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	const sections = document.querySelectorAll('[id]');
+	const navLinks = document.querySelectorAll('.sidebar .nav-link');
+	window.addEventListener('scroll', () => {
+		let current = '';
+		sections.forEach(s => {
+			if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+		});
+		navLinks.forEach(link => {
+			link.classList.remove('active');
+			if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+		});
+	});
+</script>
+</body>
+</html>

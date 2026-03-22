@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<title>Nhân viên</title>
+	<style>
+		body { background-color: #f4f6f9; }
+		.sidebar { position: sticky; top: 20px; }
+		.sidebar .nav-link {
+			color: #333;
+			border-left: 3px solid transparent;
+			padding: 6px 12px;
+			font-size: 0.9rem;
+		}
+		.sidebar .nav-link:hover,
+		.sidebar .nav-link.active {
+			border-left-color: #1a3c5e;
+			color: #1a3c5e;
+			background-color: #e8f0fe;
+			border-radius: 0 4px 4px 0;
+		}
+		.section-title {
+			color: #1a3c5e;
+			border-bottom: 2px solid #1a3c5e;
+			padding-bottom: 6px;
+			margin-top: 40px;
+		}
+		.btn-desc {
+			display: inline-block;
+			min-width: 80px;
+			text-align: center;
+			font-size: 0.8rem;
+			padding: 2px 10px;
+		}
+		.step-box {
+			border-left: 4px solid #1a3c5e;
+			background: #fff;
+			padding: 10px 16px;
+			margin-bottom: 10px;
+			border-radius: 0 6px 6px 0;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+		}
+		.step-box strong { color: #1a3c5e; }
+		.note-box {
+			background: #fff8e1;
+			border-left: 4px solid #ffc107;
+			padding: 10px 16px;
+			border-radius: 0 6px 6px 0;
+			font-size: 0.9rem;
+		}
+		.field-table th { background-color: #1a3c5e; color: white; }
+	</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" style="background-color: #1a3c5e;">
+	<div class="container">
+		<a class="navbar-brand text-white fw-bold" href="index.html">
+			<i class="bi bi-shop me-2"></i>Trợ giúp
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navMenu">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="index.html"><i class="bi bi-house me-1"></i>Trang chủ</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+						<i class="bi bi-people me-1"></i>Quản lý
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="nhanvien.html"><i class="bi bi-person-badge me-2"></i>Nhân viên</a></li>
+						<li><a class="dropdown-item" href="khachhang.html"><i class="bi bi-people me-2"></i>Khách hàng</a></li>
+						<li><a class="dropdown-item" href="sanpham.html"><i class="bi bi-box me-2"></i>Sản phẩm</a></li>
+						<li><a class="dropdown-item" href="hoadon.html"><i class="bi bi-receipt me-2"></i>Hoá đơn</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="baocao.html"><i class="bi bi-bar-chart me-1"></i>Báo cáo</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container my-4">
+	<div class="row">
+ 
+		<!-- Sidebar -->
+		<div class="col-md-3">
+			<div class="sidebar card p-3 shadow-sm">
+				<h6 class="fw-bold text-uppercase text-muted mb-3" style="font-size:0.75rem; letter-spacing:1px;">
+					<i class="bi bi-list-ul me-1"></i>Mục lục
+				</h6>
+				<nav class="nav flex-column">
+					<a class="nav-link" href="#gioi-thieu"><i class="bi bi-info-circle me-1"></i>Giới thiệu</a>
+					<a class="nav-link" href="#cac-nut"><i class="bi bi-grid-3x2-gap me-1"></i>Các nút chức năng</a>
+					<a class="nav-link" href="#danhsach"><i class="bi bi-table me-1"></i>Danh sách hoá đơn</a>
+					<a class="nav-link" href="#lap"><i class="bi bi-plus-circle me-1"></i>Lập hoá đơn mới</a>
+					<a class="nav-link" href="#chitiet"><i class="bi bi-card-list me-1"></i>Xem chi tiết hoá đơn</a>
+					<a class="nav-link" href="#sua"><i class="bi bi-pencil me-1"></i>Sửa hoá đơn</a>
+					<a class="nav-link" href="#xoa"><i class="bi bi-trash me-1"></i>Xóa hoá đơn</a>
+					<a class="nav-link" href="#in"><i class="bi bi-printer me-1"></i>In hoá đơn</a>
+					<a class="nav-link" href="#timkiem"><i class="bi bi-search me-1"></i>Tìm kiếm hoá đơn</a>
+					<a class="nav-link" href="#nhap"><i class="bi bi-file-earmark-arrow-down me-1"></i>Nhập từ Excel</a>
+					<a class="nav-link" href="#xuat"><i class="bi bi-file-earmark-arrow-up me-1"></i>Xuất ra Excel</a>
+				</nav>
+			</div>
+		</div>
+ 
+		<!-- Nội dung chính -->
+		<div class="col-md-9">
+			<div class="card shadow-sm p-4">
+ 
+				<!-- Tiêu đề -->
+				<div class="d-flex align-items-center mb-3">
+					<i class="bi bi-receipt fs-2 text-primary me-3"></i>
+					<div>
+						<h3 class="mb-0 fw-bold" style="color:#1a3c5e;">Quản lý Hoá Đơn</h3>
+						<small class="text-muted">Hướng dẫn sử dụng màn hình Hoá đơn – ITShop.VN</small>
+					</div>
+				</div>
+ 
+				<img src="images/hoadon.png" class="img-fluid rounded border mb-4 mx-auto d-block" alt="Màn hình hoá đơn" />
+ 
+				<!-- Giới thiệu -->
+				<h4 class="section-title" id="gioi-thieu"><i class="bi bi-info-circle me-2"></i>Giới thiệu</h4>
+				<p>Màn hình <strong>Hoá đơn</strong> cho phép quản lý toàn bộ hoá đơn bán hàng trong hệ thống, bao gồm: lập hoá đơn mới, xem chi tiết, sửa, xóa, in, tìm kiếm, nhập và xuất Excel. Mỗi hoá đơn ghi nhận thông tin nhân viên lập, khách hàng, ngày lập, tổng tiền và danh sách sản phẩm.</p>
+ 
+				<h6 class="mt-3 fw-bold">Thông tin hiển thị trong danh sách:</h6>
+				<table class="table table-bordered table-sm field-table">
+					<thead>
+						<tr><th>Cột</th><th>Mô tả</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>ID</td><td>Mã hoá đơn, được tạo tự động bởi hệ thống</td></tr>
+						<tr><td>Nhân viên</td><td>Tên nhân viên đã lập hoá đơn</td></tr>
+						<tr><td>Khách hàng</td><td>Tên khách hàng mua hàng</td></tr>
+						<tr><td>Ngày lập</td><td>Ngày và giờ tạo hoá đơn</td></tr>
+						<tr><td>Tổng tiền</td><td>Tổng giá trị của hoá đơn (VNĐ)</td></tr>
+						<tr><td>Chi tiết</td><td>Liên kết xem danh sách sản phẩm trong hoá đơn</td></tr>
+					</tbody>
+				</table>
+ 
+				<!-- Các nút chức năng -->
+				<h4 class="section-title" id="cac-nut"><i class="bi bi-grid-3x2-gap me-2"></i>Các nút chức năng</h4>
+				<table class="table table-bordered table-sm">
+					<thead class="field-table">
+						<tr><th>Nút</th><th>Chức năng</th><th>Phím tắt</th></tr>
+					</thead>
+					<tbody>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Lập hoá đơn mới...</span></td><td>Mở cửa sổ lập hoá đơn bán hàng mới</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">In hoá đơn...</span></td><td>In hoá đơn đang chọn ra máy in</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Sửa...</span></td><td>Mở hoá đơn đang chọn để chỉnh sửa</td><td>–</td></tr>
+						<tr><td><span class="btn btn-danger btn-sm btn-desc">Xoá</span></td><td>Xóa hoá đơn đang được chọn</td><td>Del</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Thoát</span></td><td>Đóng màn hình Hoá đơn</td><td>Alt+F4</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Tìm kiếm...</span></td><td>Tìm kiếm hoá đơn theo nhân viên, khách hàng hoặc ngày</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Nhập Excel...</span></td><td>Nhập danh sách hoá đơn từ file Excel</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Xuất Excel...</span></td><td>Xuất danh sách hoá đơn ra file Excel</td><td>–</td></tr>
+					</tbody>
+				</table>
+ 
+				<!-- Danh sách -->
+				<h4 class="section-title" id="danhsach"><i class="bi bi-table me-2"></i>Danh sách hoá đơn</h4>
+				<p>Bảng danh sách hiển thị toàn bộ hoá đơn với các cột: <strong>ID, Nhân viên, Khách hàng, Ngày lập, Tổng tiền, Chi tiết</strong>.</p>
+				<div class="step-box"><strong>Bước 1:</strong> Mở màn hình Hoá đơn — danh sách tự động tải và hiển thị tất cả hoá đơn trong hệ thống, sắp xếp theo ngày lập mới nhất.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Click vào một dòng trong danh sách để chọn hoá đơn.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Sau khi chọn, bạn có thể thực hiện: <strong>In</strong>, <strong>Sửa</strong> hoặc <strong>Xoá</strong> hoá đơn đó.</div>
+ 
+				<!-- Lập hoá đơn -->
+				<h4 class="section-title" id="lap"><i class="bi bi-plus-circle me-2"></i>Lập hoá đơn mới</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Lập hoá đơn mới...</strong> — cửa sổ lập hoá đơn mở ra.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Chọn <strong>Khách hàng</strong> từ danh sách (hoặc để trống nếu khách lẻ không có trong hệ thống).</div>
+				<div class="step-box"><strong>Bước 3:</strong> Thêm sản phẩm vào hoá đơn — chọn sản phẩm và nhập số lượng. Đơn giá tự động lấy từ hệ thống.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Kiểm tra tổng tiền được tính tự động. Có thể thêm nhiều sản phẩm khác nhau vào cùng một hoá đơn.</div>
+				<div class="step-box"><strong>Bước 5:</strong> Nhấn <strong>Lưu</strong> để lưu hoá đơn — hoá đơn mới xuất hiện trong danh sách và số lượng tồn kho tự động cập nhật.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-exclamation-triangle-fill text-warning me-1"></i>
+					<strong>Lưu ý:</strong> Hoá đơn phải có ít nhất một sản phẩm. Số lượng sản phẩm trong hoá đơn không được vượt quá số lượng tồn kho hiện có.
+				</div>
+ 
+				<!-- Chi tiết -->
+				<h4 class="section-title" id="chitiet"><i class="bi bi-card-list me-2"></i>Xem chi tiết hoá đơn</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào hoá đơn muốn xem trong danh sách để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Click vào cột <strong>Chi tiết</strong> của dòng hoá đơn đó — cửa sổ chi tiết mở ra, hiển thị danh sách sản phẩm, số lượng, đơn giá và thành tiền từng mặt hàng.</div>
+ 
+				<!-- Sửa -->
+				<h4 class="section-title" id="sua"><i class="bi bi-pencil me-2"></i>Sửa hoá đơn</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào hoá đơn cần sửa trong danh sách để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong>Sửa...</strong> — cửa sổ chỉnh sửa hoá đơn mở ra.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Thay đổi thông tin cần cập nhật (khách hàng, sản phẩm, số lượng...).</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhấn <strong>Lưu</strong> để lưu lại thay đổi. Tổng tiền và tồn kho sẽ được cập nhật lại tự động.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Nhân viên lập hoá đơn và ngày lập không thể thay đổi sau khi hoá đơn đã được lưu.
+				</div>
+ 
+				<!-- Xóa -->
+				<h4 class="section-title" id="xoa"><i class="bi bi-trash me-2"></i>Xóa hoá đơn</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào hoá đơn cần xóa trong danh sách để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong class="text-danger">Xoá</strong> hoặc nhấn phím <kbd>Del</kbd>.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Hộp thoại xác nhận hiện ra — nhấn <strong>Có (Yes)</strong> để xác nhận hoặc <strong>Không (No)</strong> để hủy.</div>
+				<div class="note-box mt-2" style="background:#fff0f0; border-color:#dc3545;">
+					<i class="bi bi-exclamation-triangle-fill text-danger me-1"></i>
+					<strong>Cảnh báo:</strong> Thao tác xóa không thể hoàn tác. Khi xóa hoá đơn, số lượng sản phẩm trong kho sẽ được hoàn trả tự động.
+				</div>
+ 
+				<!-- In hoá đơn -->
+				<h4 class="section-title" id="in"><i class="bi bi-printer me-2"></i>In hoá đơn</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào hoá đơn cần in trong danh sách để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong>In hoá đơn...</strong> — hộp thoại in xuất hiện.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Chọn máy in và các tùy chọn in (số bản sao, khổ giấy...).</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhấn <strong>Print (In)</strong> để in hoá đơn.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Đảm bảo máy in đã được kết nối và bật nguồn trước khi thực hiện in. Khổ giấy khuyến nghị: <strong>A4</strong>.
+				</div>
+ 
+				<!-- Tìm kiếm -->
+				<h4 class="section-title" id="timkiem"><i class="bi bi-search me-2"></i>Tìm kiếm hoá đơn</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Tìm kiếm...</strong> — hộp thoại tìm kiếm mở ra.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhập từ khóa hoặc chọn tiêu chí tìm kiếm: tên nhân viên, tên khách hàng, hoặc khoảng ngày lập.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Hệ thống lọc và hiển thị các hoá đơn phù hợp trong danh sách.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Có thể kết hợp nhiều tiêu chí tìm kiếm cùng lúc để thu hẹp kết quả.
+				</div>
+ 
+				<!-- Nhập Excel -->
+				<h4 class="section-title" id="nhap"><i class="bi bi-file-earmark-arrow-down me-2"></i>Nhập hoá đơn từ Excel</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Chuẩn bị file Excel với các cột: <strong>Nhân viên, Khách hàng, Ngày lập, Tổng tiền</strong>.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong>Nhập Excel...</strong> — hộp thoại chọn file mở ra.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Tìm đến file Excel cần nhập và nhấn <strong>Open (Mở)</strong>.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Hệ thống đọc dữ liệu và thêm vào cơ sở dữ liệu. Thông báo kết quả hiển thị sau khi hoàn tất.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Nhân viên và Khách hàng phải tồn tại sẵn trong hệ thống. Dòng đầu tiên (tiêu đề) sẽ bị bỏ qua khi nhập.
+				</div>
+ 
+				<!-- Xuất Excel -->
+				<h4 class="section-title" id="xuat"><i class="bi bi-file-earmark-arrow-up me-2"></i>Xuất hoá đơn ra Excel</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Nhấn nút <strong>Xuất Excel...</strong> — hộp thoại lưu file mở ra.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Chọn thư mục lưu và đặt tên file Excel mong muốn.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Nhấn <strong>Save (Lưu)</strong> để xuất file.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Sau khi xuất xong, hệ thống thông báo thành công và có thể mở file Excel vừa tạo ngay lập tức.</div>
+ 
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+<!-- FOOTER -->
+<footer class="mt-5 py-4" style="background-color: #1a3c5e; color: #cdd9e5;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="small mb-0">Tài liệu hướng dẫn sử dụng phần mềm quản lý bán hàng.</p>
+			</div>
+			<div class="col-md-6 text-md-end mt-3 mt-md-0">
+				<p class="small mb-0"><i class="bi bi-envelope me-1"></i>thanhtrucvotrinh@gmail.com</p>
+				<p class="small mb-0"><i class="bi bi-telephone me-1"></i>(0123) 456 789</p>
+				<p class="small mb-1 mt-2">&copy; 2026 Võ Trình Thanh Trúc. Tất cả quyền được bảo lưu.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	const sections = document.querySelectorAll('[id]');
+	const navLinks = document.querySelectorAll('.sidebar .nav-link');
+	window.addEventListener('scroll', () => {
+		let current = '';
+		sections.forEach(s => {
+			if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+		});
+		navLinks.forEach(link => {
+			link.classList.remove('active');
+			if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+		});
+	});
+</script>
+</body>
+</html>

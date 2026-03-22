@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<title>Nhân viên</title>
+	<style>
+		body { background-color: #f4f6f9; }
+		.sidebar { position: sticky; top: 20px; }
+		.sidebar .nav-link {
+			color: #333;
+			border-left: 3px solid transparent;
+			padding: 6px 12px;
+			font-size: 0.9rem;
+		}
+		.sidebar .nav-link:hover,
+		.sidebar .nav-link.active {
+			border-left-color: #1a3c5e;
+			color: #1a3c5e;
+			background-color: #e8f0fe;
+			border-radius: 0 4px 4px 0;
+		}
+		.section-title {
+			color: #1a3c5e;
+			border-bottom: 2px solid #1a3c5e;
+			padding-bottom: 6px;
+			margin-top: 40px;
+		}
+		.btn-desc {
+			display: inline-block;
+			min-width: 80px;
+			text-align: center;
+			font-size: 0.8rem;
+			padding: 2px 10px;
+		}
+		.step-box {
+			border-left: 4px solid #1a3c5e;
+			background: #fff;
+			padding: 10px 16px;
+			margin-bottom: 10px;
+			border-radius: 0 6px 6px 0;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+		}
+		.step-box strong { color: #1a3c5e; }
+		.note-box {
+			background: #fff8e1;
+			border-left: 4px solid #ffc107;
+			padding: 10px 16px;
+			border-radius: 0 6px 6px 0;
+			font-size: 0.9rem;
+		}
+		.field-table th { background-color: #1a3c5e; color: white; }
+	</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" style="background-color: #1a3c5e;">
+	<div class="container">
+		<a class="navbar-brand text-white fw-bold" href="index.html">
+			<i class="bi bi-shop me-2"></i>Trợ giúp
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navMenu">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="index.html"><i class="bi bi-house me-1"></i>Trang chủ</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+						<i class="bi bi-people me-1"></i>Quản lý
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="nhanvien.html"><i class="bi bi-person-badge me-2"></i>Nhân viên</a></li>
+						<li><a class="dropdown-item" href="khachhang.html"><i class="bi bi-people me-2"></i>Khách hàng</a></li>
+						<li><a class="dropdown-item" href="sanpham.html"><i class="bi bi-box me-2"></i>Sản phẩm</a></li>
+						<li><a class="dropdown-item" href="hoadon.html"><i class="bi bi-receipt me-2"></i>Hoá đơn</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="baocao.html"><i class="bi bi-bar-chart me-1"></i>Báo cáo</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container my-4">
+	<div class="row">
+ 
+		<!-- Sidebar -->
+		<div class="col-md-3">
+			<div class="sidebar card p-3 shadow-sm">
+				<h6 class="fw-bold text-uppercase text-muted mb-3" style="font-size:0.75rem; letter-spacing:1px;">
+					<i class="bi bi-list-ul me-1"></i>Mục lục
+				</h6>
+				<nav class="nav flex-column">
+					<a class="nav-link" href="#gioi-thieu"><i class="bi bi-info-circle me-1"></i>Giới thiệu</a>
+					<a class="nav-link" href="#cac-truong"><i class="bi bi-input-cursor me-1"></i>Các trường nhập liệu</a>
+					<a class="nav-link" href="#cac-nut"><i class="bi bi-grid-3x2-gap me-1"></i>Các nút chức năng</a>
+					<a class="nav-link" href="#lap-hd"><i class="bi bi-plus-circle me-1"></i>Lập hoá đơn chi tiết</a>
+					<a class="nav-link" href="#them-sp"><i class="bi bi-cart-plus me-1"></i>Thêm sản phẩm vào hoá đơn</a>
+					<a class="nav-link" href="#xoa-sp"><i class="bi bi-trash me-1"></i>Xóa sản phẩm khỏi hoá đơn</a>
+					<a class="nav-link" href="#luu-in"><i class="bi bi-save me-1"></i>Lưu và in hoá đơn</a>
+				</nav>
+			</div>
+		</div>
+ 
+		<!-- Nội dung chính -->
+		<div class="col-md-9">
+			<div class="card shadow-sm p-4">
+ 
+				<!-- Tiêu đề -->
+				<div class="d-flex align-items-center mb-3">
+					<i class="bi bi-receipt-cutoff fs-2 text-primary me-3"></i>
+					<div>
+						<h3 class="mb-0 fw-bold" style="color:#1a3c5e;">Hoá Đơn Chi Tiết</h3>
+						<small class="text-muted">Hướng dẫn sử dụng màn hình Hoá đơn chi tiết – ITShop.VN</small>
+					</div>
+				</div>
+ 
+				<img src="images/hoadonchitiet.png" class="img-fluid rounded border mb-4 mx-auto d-block" alt="Màn hình hoá đơn chi tiết" />
+ 
+				<!-- Giới thiệu -->
+				<h4 class="section-title" id="gioi-thieu"><i class="bi bi-info-circle me-2"></i>Giới thiệu</h4>
+				<p>Màn hình <strong>Hoá đơn chi tiết</strong> được mở từ màn hình Hoá đơn khi nhấn <strong>Lập hoá đơn mới</strong> hoặc <strong>Sửa...</strong>. Tại đây, nhân viên thực hiện chọn khách hàng, thêm từng sản phẩm vào hoá đơn, xác nhận số lượng và đơn giá, sau đó lưu và in hoá đơn.</p>
+				<p>Màn hình gồm hai phần chính: <strong>Thông tin hoá đơn</strong> (nhân viên, khách hàng, ghi chú) và <strong>Thông tin chi tiết hoá đơn</strong> (danh sách sản phẩm, số lượng, thành tiền).</p>
+ 
+				<!-- Các trường nhập liệu -->
+				<h4 class="section-title" id="cac-truong"><i class="bi bi-input-cursor me-2"></i>Các trường nhập liệu</h4>
+ 
+				<h6 class="mt-3 fw-bold text-secondary">Thông tin hoá đơn</h6>
+				<table class="table table-bordered table-sm field-table mb-3">
+					<thead>
+						<tr><th>Trường</th><th>Mô tả</th><th>Bắt buộc</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Nhân viên lập</td>
+							<td>Nhân viên thực hiện lập hoá đơn — mặc định là tài khoản đang đăng nhập</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Khách hàng</td>
+							<td>Khách hàng mua hàng, chọn từ danh sách. Để trống nếu là khách vãng lai</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Ghi chú hoá đơn</td>
+							<td>Ghi chú thêm (giao hàng, phương thức thanh toán...)</td>
+							<td class="text-center text-muted">–</td>
+						</tr>
+					</tbody>
+				</table>
+ 
+				<h6 class="fw-bold text-secondary">Thông tin chi tiết sản phẩm</h6>
+				<table class="table table-bordered table-sm field-table">
+					<thead>
+						<tr><th>Trường</th><th>Mô tả</th><th>Bắt buộc</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Sản phẩm</td>
+							<td>Chọn sản phẩm cần thêm vào hoá đơn từ danh sách thả xuống</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Đơn giá bán</td>
+							<td>Giá bán của sản phẩm (VNĐ) — tự động lấy từ hệ thống, có thể điều chỉnh</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+						<tr>
+							<td>Số lượng bán</td>
+							<td>Số lượng sản phẩm cần bán — không vượt quá tồn kho hiện có</td>
+							<td class="text-center text-danger">✓</td>
+						</tr>
+					</tbody>
+				</table>
+ 
+				<h6 class="fw-bold text-secondary mt-3">Thông tin trong bảng chi tiết hoá đơn</h6>
+				<table class="table table-bordered table-sm field-table">
+					<thead>
+						<tr><th>Cột</th><th>Mô tả</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>ID</td><td>Mã sản phẩm trong hệ thống</td></tr>
+						<tr><td>Tên sản phẩm</td><td>Tên đầy đủ của sản phẩm đã thêm</td></tr>
+						<tr><td>Đơn giá bán</td><td>Giá bán của một đơn vị sản phẩm</td></tr>
+						<tr><td>Số lượng bán</td><td>Số lượng sản phẩm trong hoá đơn</td></tr>
+						<tr><td>Thành tiền</td><td>= Đơn giá bán × Số lượng bán, tính tự động</td></tr>
+					</tbody>
+				</table>
+ 
+				<!-- Các nút chức năng -->
+				<h4 class="section-title" id="cac-nut"><i class="bi bi-grid-3x2-gap me-2"></i>Các nút chức năng</h4>
+				<table class="table table-bordered table-sm">
+					<thead class="field-table">
+						<tr><th>Nút</th><th>Chức năng</th><th>Phím tắt</th></tr>
+					</thead>
+					<tbody>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">Xác nhận bán</span></td><td>Thêm sản phẩm đang chọn vào danh sách chi tiết hoá đơn</td><td>–</td></tr>
+						<tr><td><span class="btn btn-danger btn-sm btn-desc">Xoá</span></td><td>Xóa dòng sản phẩm đang chọn khỏi danh sách chi tiết</td><td>Del</td></tr>
+						<tr><td><span class="btn btn-primary btn-sm btn-desc">Lưu hoá đơn...</span></td><td>Lưu hoá đơn vào hệ thống, cập nhật tồn kho tự động</td><td>–</td></tr>
+						<tr><td><span class="btn btn-secondary btn-sm btn-desc">In hoá đơn...</span></td><td>In hoá đơn ra máy in</td><td>–</td></tr>
+						<tr><td><span class="btn btn-danger btn-sm btn-desc">Thoát</span></td><td>Đóng cửa sổ hoá đơn chi tiết</td><td>Alt+F4</td></tr>
+					</tbody>
+				</table>
+ 
+				<!-- Lập hoá đơn chi tiết -->
+				<h4 class="section-title" id="lap-hd"><i class="bi bi-plus-circle me-2"></i>Lập hoá đơn chi tiết</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Màn hình mở ra từ nút <strong>Lập hoá đơn mới...</strong> trong màn hình Hoá đơn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Chọn <strong>Nhân viên lập (*)</strong> — mặc định là tài khoản đang đăng nhập.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Chọn <strong>Khách hàng (*)</strong> từ danh sách thả xuống.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhập <strong>Ghi chú hoá đơn</strong> nếu cần (không bắt buộc).</div>
+				<div class="step-box"><strong>Bước 5:</strong> Thêm sản phẩm vào hoá đơn — xem hướng dẫn ở mục bên dưới.</div>
+				<div class="step-box"><strong>Bước 6:</strong> Nhấn <strong>Lưu hoá đơn...</strong> sau khi đã thêm đủ sản phẩm.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-exclamation-triangle-fill text-warning me-1"></i>
+					<strong>Lưu ý:</strong> Hoá đơn phải có <strong>ít nhất một sản phẩm</strong> mới có thể lưu được.
+				</div>
+ 
+				<!-- Thêm sản phẩm -->
+				<h4 class="section-title" id="them-sp"><i class="bi bi-cart-plus me-2"></i>Thêm sản phẩm vào hoá đơn</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Tại phần <strong>Thông tin chi tiết hoá đơn</strong>, chọn <strong>Sản phẩm (*)</strong> từ danh sách thả xuống — đơn giá sẽ tự động điền.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Kiểm tra hoặc điều chỉnh <strong>Đơn giá bán (*)</strong> nếu cần.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Nhập <strong>Số lượng bán (*)</strong> — phải lớn hơn 0 và không vượt quá tồn kho.</div>
+				<div class="step-box"><strong>Bước 4:</strong> Nhấn nút <strong>Xác nhận bán</strong> — sản phẩm được thêm vào bảng chi tiết bên dưới. <strong>Thành tiền</strong> được tính tự động.</div>
+				<div class="step-box"><strong>Bước 5:</strong> Lặp lại Bước 1–4 để thêm nhiều sản phẩm khác vào cùng một hoá đơn.</div>
+				<div class="note-box mt-2">
+					<i class="bi bi-info-circle-fill text-primary me-1"></i>
+					<strong>Lưu ý:</strong> Nếu chọn lại sản phẩm đã có trong danh sách, hệ thống sẽ cộng dồn số lượng vào dòng hiện có thay vì tạo dòng mới.
+				</div>
+ 
+				<!-- Xóa sản phẩm -->
+				<h4 class="section-title" id="xoa-sp"><i class="bi bi-trash me-2"></i>Xóa sản phẩm khỏi hoá đơn</h4>
+				<div class="step-box"><strong>Bước 1:</strong> Click vào dòng sản phẩm cần xóa trong bảng chi tiết để chọn.</div>
+				<div class="step-box"><strong>Bước 2:</strong> Nhấn nút <strong class="text-danger">Xoá</strong> hoặc nhấn phím <kbd>Del</kbd>.</div>
+				<div class="step-box"><strong>Bước 3:</strong> Dòng sản phẩm bị xóa khỏi danh sách. Tổng tiền được cập nhật lại tự động.</div>
+				<div class="note-box mt-2" style="background:#fff0f0; border-color:#dc3545;">
+					<i class="bi bi-exclamation-triangle-fill text-danger me-1"></i>
+					<strong>Cảnh báo:</strong> Thao tác xóa không thể hoàn tác. Nếu xóa nhầm, cần thêm lại sản phẩm từ đầu.
+				</div>
+ 
+				<!-- Lưu và in -->
+				<h4 class="section-title" id="luu-in"><i class="bi bi-save me-2"></i>Lưu và in hoá đơn</h4>
+				<div class="step-box"><strong>Lưu hoá đơn:</strong> Nhấn nút <strong>Lưu hoá đơn...</strong> — hệ thống lưu toàn bộ thông tin vào cơ sở dữ liệu. Số lượng tồn kho của từng sản phẩm sẽ <strong>tự động giảm</strong> theo số lượng đã bán.</div>
+				<div class="step-box"><strong>In hoá đơn:</strong> Nhấn nút <strong>In hoá đơn...</strong> — hộp thoại in xuất hiện. Chọn máy in, số bản sao rồi nhấn <strong>Print</strong>. Khổ giấy khuyến nghị: <strong>A4</strong>.</div>
+				<div class="step-box"><strong>Thoát:</strong> Nhấn nút <strong class="text-danger">Thoát</strong> hoặc nhấn <kbd>Alt+F4</kbd> để đóng cửa sổ và quay lại màn hình Hoá đơn.</div>
+				<div class="note-box mt-2" style="background:#fff0f0; border-color:#dc3545;">
+					<i class="bi bi-exclamation-triangle-fill text-danger me-1"></i>
+					<strong>Cảnh báo:</strong> Nhấn <strong>Thoát</strong> khi chưa lưu sẽ mất toàn bộ thông tin đã nhập. Hãy đảm bảo đã nhấn <strong>Lưu hoá đơn...</strong> trước khi thoát.
+				</div>
+ 
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+<!-- FOOTER -->
+<footer class="mt-5 py-4" style="background-color: #1a3c5e; color: #cdd9e5;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="small mb-0">Tài liệu hướng dẫn sử dụng phần mềm quản lý bán hàng.</p>
+			</div>
+			<div class="col-md-6 text-md-end mt-3 mt-md-0">
+				<p class="small mb-0"><i class="bi bi-envelope me-1"></i>thanhtrucvotrinh@gmail.com</p>
+				<p class="small mb-0"><i class="bi bi-telephone me-1"></i>(0123) 456 789</p>
+				<p class="small mb-1 mt-2">&copy; 2026 Võ Trình Thanh Trúc. Tất cả quyền được bảo lưu.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	const sections = document.querySelectorAll('[id]');
+	const navLinks = document.querySelectorAll('.sidebar .nav-link');
+	window.addEventListener('scroll', () => {
+		let current = '';
+		sections.forEach(s => {
+			if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+		});
+		navLinks.forEach(link => {
+			link.classList.remove('active');
+			if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+		});
+	});
+</script>
+</body>
+</html>
